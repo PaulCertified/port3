@@ -1,40 +1,29 @@
 import React, { useState } from 'react';
-import { PhaseCard } from './components';
-import { approachConfig } from './config';
-import { GradientText } from '../ui';
 import { motion } from 'framer-motion';
+import { ApproachTitle } from './components/ApproachTitle';
+import { PhaseGrid } from './components/PhaseGrid';
+import { BackgroundGrid } from './components/BackgroundGrid';
+import { approachConfig } from './config';
 
-const VARIANTS = ['purple', 'blue', 'cyan'] as const;
-
-const Approach = () => {
-  const [activePhase, setActivePhase] = useState(2);
+const Approach: React.FC = () => {
+  const [hoveredPhase, setHoveredPhase] = useState<number | null>(null);
 
   return (
-    <section className="py-24 relative">
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,black,transparent)]" />
+    <section className="py-16 md:py-24 relative">
+      <BackgroundGrid />
       
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
+        className="relative z-10"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-          {approachConfig.title}{' '}
-          <GradientText>{approachConfig.highlightedWord}</GradientText>
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-          {approachConfig.phases.map((phase, index) => (
-            <PhaseCard
-              key={phase.number}
-              {...phase}
-              isActive={activePhase === phase.number}
-              onHover={() => setActivePhase(phase.number)}
-              variant={VARIANTS[index]}
-            />
-          ))}
-        </div>
+        <ApproachTitle />
+        <PhaseGrid
+          phases={approachConfig.phases}
+          hoveredPhase={hoveredPhase}
+          onPhaseHover={setHoveredPhase}
+        />
       </motion.div>
     </section>
   );

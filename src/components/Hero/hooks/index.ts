@@ -1,1 +1,1 @@
-export * from './useProfileImage';
+export * from './useScrollToSection';

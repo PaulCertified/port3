@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Font optimization for better text rendering */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
 /* Existing styles... */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
@@ -33,7 +41,7 @@
   animation: float 6s ease-in-out infinite;
 }
 
-/* Glowing button styles */
+/* Enhanced glowing button styles */
 .glow-button {
   position: relative;
   overflow: hidden;

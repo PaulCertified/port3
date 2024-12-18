@@ -1,26 +1,28 @@
 import React from 'react';
-import { Logo, NavLinks } from './components';
-import { useScrollEffect } from './hooks';
-import { navbarStyles as styles } from './styles';
-import { motion } from 'framer-motion';
+import { Container } from '../layout';
+import { HamburgerButton } from './components/HamburgerButton';
+import { NavLinks } from './components/NavLinks';
+import { MobileMenu } from './components/MobileMenu';
+import { useNavbar } from './hooks/useNavbar';
+import { navConfig } from './config';
 
 const Navbar = () => {
-  const isScrolled = useScrollEffect();
+  const { isOpen, toggle, close } = useNavbar();
 
   return (
-    <motion.header
-      className={`${styles.wrapper} ${isScrolled ? styles.scrolled : ''}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <Logo />
-          <NavLinks />
-        </div>
-      </div>
-    </motion.header>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0A0A1B]/80 backdrop-blur-sm border-b border-white/5">
+      <Container>
+        <nav className="relative h-16 flex items-center justify-between md:justify-center">
+          <HamburgerButton isOpen={isOpen} toggle={toggle} />
+          <NavLinks className="hidden md:flex" />
+          <MobileMenu
+            isOpen={isOpen}
+            links={navConfig.links}
+            onLinkClick={close}
+          />
+        </nav>
+      </Container>
+    </header>
   );
 };
 

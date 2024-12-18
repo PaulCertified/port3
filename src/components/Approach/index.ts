@@ -1,1 +1,1 @@
-export { default } from './Approach';
+export { default as Approach } from './Approach';

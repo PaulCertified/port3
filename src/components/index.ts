@@ -1,8 +1,8 @@
-export { default as Navbar } from './Navbar';
-export { default as Hero } from './Hero';
-export { default as Features } from './Features';
-export { default as Projects } from './Projects';
-export { default as Testimonials } from './Testimonials';
-export { default as Approach } from './Approach';
-export { default as Contact } from './Contact';
-export { default as Footer } from './Footer';
+export { Navbar } from './Navbar';
+export { Hero } from './Hero';
+export { Features } from './Features';
+export { Projects } from './Projects';
+export { Testimonials } from './Testimonials';
+export { Approach } from './Approach';
+export { Contact } from './Contact';
+export { Footer } from './Footer';

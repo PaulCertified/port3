@@ -1,16 +1,15 @@
 import React from 'react';
-import { navigationLinks } from '../config';
+import { NavLink } from './NavLink';
+import { navConfig } from '../config';
 
-export const NavLinks = () => (
-  <div className="hidden md:flex items-center gap-8">
-    {navigationLinks.map(({ href, label }) => (
-      <a
-        key={href}
-        href={href}
-        className="text-gray-300 hover:text-white transition-colors relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-purple-400 after:transition-all hover:after:w-full"
-      >
-        {label}
-      </a>
+interface NavLinksProps {
+  className?: string;
+}
+
+export const NavLinks: React.FC<NavLinksProps> = ({ className = '' }) => (
+  <div className={`flex items-center gap-2 ${className}`}>
+    {navConfig.links.map((link) => (
+      <NavLink key={link.href} {...link} />
     ))}
   </div>
 );

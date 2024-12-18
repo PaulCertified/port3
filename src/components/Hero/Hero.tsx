@@ -1,40 +1,23 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { heroConfig } from './config';
-import { GradientBadge, GradientText } from '../ui';
-import { ProfileImage } from './components';
 import { motion } from 'framer-motion';
+import { HeroHeader, HeroContent } from './components';
+import { useScrollToSection } from './hooks';
 
-const Hero = () => {
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+const Hero: React.FC = () => {
+  const scrollToProjects = useScrollToSection('projects');
 
   return (
-    <main className="pt-32 pb-16 text-center">
-      <ProfileImage />
-      
+    <main className="min-h-[60vh] flex items-center justify-center pt-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.6 }}
+        className="text-center"
       >
-        <GradientBadge>{heroConfig.badge}</GradientBadge>
-
-        <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
-          {heroConfig.titleFirstPart}{' '}
-          <span className="block mt-2">
-            {heroConfig.titleSecondPart}{' '}
-            <GradientText>{heroConfig.titleHighlight}</GradientText>
-          </span>
-        </h1>
-
-        <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-          {heroConfig.description}
-        </p>
+        <HeroHeader />
+        <HeroContent />
 
         <motion.button
           onClick={scrollToProjects}

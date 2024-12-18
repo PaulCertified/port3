@@ -6,18 +6,18 @@ export const approachConfig: ApproachConfig = {
   phases: [
     {
       number: 1,
-      title: 'Discovery & Strategy',
-      description: 'Deep dive into your AI needs and business goals. We analyze requirements, data availability, and create a comprehensive roadmap for success.',
+      title: 'Planning & Strategy',
+      description: 'We will collaborate to map out your websites goals, target audience, and key functionalities. We will discuss things like site structure, navigation, and content requirements.',
     },
     {
       number: 2,
-      title: 'Development & Integration',
-      description: 'Leveraging cutting-edge AI technologies and best practices to build robust, scalable solutions that seamlessly integrate with your existing systems.',
+      title: 'Development & Progress Update',
+      description: 'Once we agree on the plan, I cue my lofi playlist and dive into coding. From initial sketches to polished code, I keep you updated every step of the way.',
     },
     {
       number: 3,
-      title: 'Deployment & Optimization',
-      description: 'Careful deployment with continuous monitoring and optimization. We ensure your AI solution delivers measurable business value and stays ahead of the curve.',
+      title: 'Development & Launch',
+      description: 'This is where the magic happens! Based on the approved design, I will translate everything into functional code, building your website from the ground up.',
     },
   ],
 };

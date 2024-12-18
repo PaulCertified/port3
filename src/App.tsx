@@ -1,30 +1,51 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import Projects from './components/Projects';
-import Testimonials from './components/Testimonials';
-import Approach from './components/Approach';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import { BackgroundPattern } from './components/ui';
+import { Container } from './components/layout';
+import {
+  Navbar,
+  Hero,
+  Features,
+  Projects,
+  Testimonials,
+  Approach,
+  Contact,
+  Footer,
+} from './components';
 
 const App = () => {
   return (
     <div className="min-h-screen bg-[#0A0A1B] text-white relative">
-      <BackgroundPattern />
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#ffffff33_1px,transparent_1px)] [background-size:32px_32px]" />
       
       <Navbar />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Hero />
-        <Features />
-        <Projects />
-        <Testimonials />
-        <Approach />
-        <Contact />
+      <Container>
+        <section id="hero">
+          <Hero />
+        </section>
+        
+        <section id="features">
+          <Features />
+        </section>
+        
+        <section id="projects">
+          <Projects />
+        </section>
+        
+        <section id="testimonials">
+          <Testimonials />
+        </section>
+        
+        <section id="approach">
+          <Approach />
+        </section>
+        
+        <section id="contact">
+          <Contact />
+        </section>
+        
         <Footer />
-      </div>
+      </Container>
     </div>
   );
 };
